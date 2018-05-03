@@ -11,8 +11,9 @@ import java.util.Random;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class Command {
-    static final Random rand = new Random();
-    static final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale(Locale.UK).withZone(ZoneId.systemDefault());
+
+    protected static final Random rand = new Random();
+    protected static final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale(Locale.UK).withZone(ZoneId.systemDefault());
     private final String description;
 
     public Command(String description) {

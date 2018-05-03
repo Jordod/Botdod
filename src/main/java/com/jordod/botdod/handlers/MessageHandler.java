@@ -1,6 +1,7 @@
 package com.jordod.botdod.handlers;
 
 import com.jordod.botdod.commands.*;
+import com.jordod.botdod.commands.warframe.Relics;
 import com.jordod.botdod.utils.MessageUtils;
 import com.vdurmont.emoji.EmojiManager;
 import sx.blah.discord.api.events.EventSubscriber;
@@ -18,6 +19,7 @@ public class MessageHandler {
         commandMap.put("roll", new Roll("Rolls a random number use *roll **number*** to increase roll range"));
         commandMap.put("userinfo", new UserInfo("Get general info about a user"));
         commandMap.put("help", new Help("Get a list of all commands or info about a specific command"));
+        commandMap.put("relics", new Relics("Image of Relic farming locations"));
     }
 
     public static Map<String, Command> getCommandMap() {

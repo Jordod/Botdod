@@ -17,7 +17,7 @@ public class MessageHandler {
         commandMap.put("ping", new Ping("Used to check if the bot is online"));
         commandMap.put("roll", new Roll("Rolls a random number use *roll **number*** to increase roll range"));
         commandMap.put("userinfo", new UserInfo("Get general info about a user"));
-        commandMap.put("help", new Help("Get a list of all command or info about a specific command"));
+        commandMap.put("help", new Help("Get a list of all commands or info about a specific command"));
     }
 
     public static Map<String, Command> getCommandMap() {

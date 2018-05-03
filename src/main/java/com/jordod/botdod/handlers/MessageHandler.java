@@ -2,9 +2,11 @@ package com.jordod.botdod.handlers;
 
 import com.jordod.botdod.commands.*;
 import com.jordod.botdod.utils.MessageUtils;
+import com.vdurmont.emoji.EmojiManager;
 import java.util.*;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MentionEvent;
+import sx.blah.discord.handle.obj.IMessage;
 
 public class MessageHandler {
 
@@ -14,7 +16,7 @@ public class MessageHandler {
         commandMap.put("ping", (event, args) -> {
             MessageUtils.sendMessage(event.getChannel(), "pong");
         });
-        
+
         commandMap.put("roll", new Roll());
         commandMap.put("userinfo", new UserInfo());
     }
@@ -24,7 +26,8 @@ public class MessageHandler {
         String[] args = event.getMessage().getContent().split(" ");
 
         if (args.length < 2) {
-            MessageUtils.sendMessage(event.getChannel(), "Hi");
+            IMessage message = event.getMessage();
+            MessageUtils.react(message, EmojiManager.getForAlias("vulcan_salute"));
             return;
         }
 

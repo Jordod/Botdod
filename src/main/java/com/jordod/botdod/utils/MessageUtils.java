@@ -1,8 +1,10 @@
 package com.jordod.botdod.utils;
 
 import static com.jordod.botdod.Botdod.LOGGER;
+import com.vdurmont.emoji.Emoji;
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
 import sx.blah.discord.handle.obj.IChannel;
+import sx.blah.discord.handle.obj.IMessage;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.RequestBuffer;
 
@@ -26,5 +28,11 @@ public class MessageUtils {
                 LOGGER.error("Message could not be sent with error: " + e.getMessage());
             }
         });
+    }
+
+    public static void react(IMessage message, Emoji emoji) {
+        RequestBuffer.request(() -> {
+            message.addReaction(emoji);
+        });        
     }
 }

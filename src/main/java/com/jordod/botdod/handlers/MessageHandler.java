@@ -1,8 +1,6 @@
 package com.jordod.botdod.handlers;
 
-import com.jordod.botdod.commands.Command;
-import com.jordod.botdod.commands.Roll;
-import com.jordod.botdod.commands.UserInfo;
+import com.jordod.botdod.commands.*;
 import com.jordod.botdod.utils.MessageUtils;
 import com.vdurmont.emoji.EmojiManager;
 import sx.blah.discord.api.events.EventSubscriber;
@@ -16,12 +14,14 @@ public class MessageHandler {
     private static Map<String, Command> commandMap = new HashMap<>();
 
     static {
-        commandMap.put("ping", (event, args) -> {
-            MessageUtils.sendMessage(event.getChannel(), "pong");
-        });
+        commandMap.put("ping", new Ping("Used to check if the bot is online"));
+        commandMap.put("roll", new Roll("Rolls a random number use *roll **number*** to increase roll range"));
+        commandMap.put("userinfo", new UserInfo("Get general info about a user"));
+        commandMap.put("help", new Help("Get a list of all command or info about a specific command"));
+    }
 
-        commandMap.put("roll", new Roll());
-        commandMap.put("userinfo", new UserInfo());
+    public static Map<String, Command> getCommandMap() {
+        return commandMap;
     }
 
     @EventSubscriber

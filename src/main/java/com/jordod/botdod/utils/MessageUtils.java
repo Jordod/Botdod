@@ -32,8 +32,6 @@ public class MessageUtils {
     }
 
     public static void react(IMessage message, Emoji emoji) {
-        RequestBuffer.request(() -> {
-            message.addReaction(emoji);
-        });        
+        RequestBuffer.request(() -> message.addReaction(emoji));
     }
 }

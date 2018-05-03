@@ -15,8 +15,9 @@ public class Botdod {
 
     public static void main(String[] args) {
         IDiscordClient client = Botdod.createClient(args[0], true);
-        EventDispatcher dispatcher = null;
+
         if (client != null) {
+            EventDispatcher dispatcher;
             dispatcher = client.getDispatcher();
             dispatcher.registerListener(new ReadyHandler());
             dispatcher.registerListener(new MessageHandler());

@@ -7,17 +7,13 @@ import sx.blah.discord.handle.obj.IUser;
 import sx.blah.discord.util.EmbedBuilder;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
-import java.util.Locale;
-import java.util.Random;
 
-public class UserInfo implements Command {
+public class UserInfo extends Command {
 
-    private final Random rand = new Random();
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale(Locale.UK).withZone(ZoneId.systemDefault());
+    public UserInfo(String description) {
+        super(description);
+    }
 
     @Override
     public void run(MentionEvent event, List<String> args) {
@@ -42,7 +38,7 @@ public class UserInfo implements Command {
 
             builder.appendField("Server Nickname", user.getDisplayName(event.getGuild()), true);
             builder.appendField("Discord Join Date", formatter.format(user.getCreationDate()), true);
-            
+
             builder.withFooterText(LocalDateTime.now().format(formatter));
 
             MessageUtils.sendEmbed(event.getChannel(), builder.build());

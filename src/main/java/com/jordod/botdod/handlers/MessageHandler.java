@@ -12,7 +12,7 @@ import java.util.*;
 
 public class MessageHandler {
 
-    private static Map<String, Command> commandMap = new HashMap<>();
+    private static final Map<String, Command> commandMap = new HashMap<>();
 
     static {
         commandMap.put("ping", new Ping("Used to check if the bot is online"));
@@ -20,12 +20,14 @@ public class MessageHandler {
         commandMap.put("userinfo", new UserInfo("Get general info about a user"));
         commandMap.put("help", new Help("Get a list of all commands or info about a specific command"));
         commandMap.put("relics", new Relics("Image of Relic farming locations"));
+        commandMap.put("clear", new Clear("Clear a number of messages (100 by default) needs MANAGE MESSAGE permissions to execute"));
     }
 
     public static Map<String, Command> getCommandMap() {
         return commandMap;
     }
 
+    @SuppressWarnings("unused")
     @EventSubscriber
     public void onMention(MentionEvent event) {
         String[] args = event.getMessage().getContent().split(" ");

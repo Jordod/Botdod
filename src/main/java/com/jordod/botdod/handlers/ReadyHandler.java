@@ -7,6 +7,7 @@ import static com.jordod.botdod.Botdod.LOGGER;
 
 public class ReadyHandler {
 
+    @SuppressWarnings("unused")
     @EventSubscriber
     public void onReady(ReadyEvent event) {
         LOGGER.info("Bot Ready");

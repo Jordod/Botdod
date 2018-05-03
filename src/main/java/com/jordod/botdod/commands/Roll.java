@@ -1,9 +1,10 @@
 package com.jordod.botdod.commands;
 
 import com.jordod.botdod.utils.MessageUtils;
+import sx.blah.discord.handle.impl.events.guild.channel.message.MentionEvent;
+
 import java.util.List;
 import java.util.Random;
-import sx.blah.discord.handle.impl.events.guild.channel.message.MentionEvent;
 
 public class Roll implements Command {
 

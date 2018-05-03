@@ -1,12 +1,15 @@
 package com.jordod.botdod.handlers;
 
-import com.jordod.botdod.commands.*;
+import com.jordod.botdod.commands.Command;
+import com.jordod.botdod.commands.Roll;
+import com.jordod.botdod.commands.UserInfo;
 import com.jordod.botdod.utils.MessageUtils;
 import com.vdurmont.emoji.EmojiManager;
-import java.util.*;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MentionEvent;
 import sx.blah.discord.handle.obj.IMessage;
+
+import java.util.*;
 
 public class MessageHandler {
 

@@ -1,10 +1,11 @@
 package com.jordod.botdod.commands;
 
-import java.util.List;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MentionEvent;
+
+import java.util.List;
 
 public interface Command {
 
-    public void run(MentionEvent event, List<String> args);
+    void run(MentionEvent event, List<String> args);
 
 }

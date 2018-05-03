@@ -1,8 +1,9 @@
 package com.jordod.botdod.handlers;
 
-import static com.jordod.botdod.Botdod.LOGGER;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.ReadyEvent;
+
+import static com.jordod.botdod.Botdod.LOGGER;
 
 public class ReadyHandler {
 

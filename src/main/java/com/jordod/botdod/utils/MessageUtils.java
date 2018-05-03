@@ -1,12 +1,13 @@
 package com.jordod.botdod.utils;
 
-import static com.jordod.botdod.Botdod.LOGGER;
 import com.vdurmont.emoji.Emoji;
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IMessage;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.RequestBuffer;
+
+import static com.jordod.botdod.Botdod.LOGGER;
 
 public class MessageUtils {
 

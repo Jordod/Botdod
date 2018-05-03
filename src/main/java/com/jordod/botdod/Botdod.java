@@ -1,6 +1,7 @@
 package com.jordod.botdod;
 
-import com.jordod.botdod.handlers.*;
+import com.jordod.botdod.handlers.MessageHandler;
+import com.jordod.botdod.handlers.ReadyHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sx.blah.discord.api.ClientBuilder;
@@ -14,13 +15,15 @@ public class Botdod {
 
     public static void main(String[] args) {
         IDiscordClient client = Botdod.createClient(args[0], true);
-        EventDispatcher dispatcher = client.getDispatcher();
-
-        dispatcher.registerListener(new ReadyHandler());
-        dispatcher.registerListener(new MessageHandler());
+        EventDispatcher dispatcher = null;
+        if (client != null) {
+            dispatcher = client.getDispatcher();
+            dispatcher.registerListener(new ReadyHandler());
+            dispatcher.registerListener(new MessageHandler());
+        }
     }
 
-    public static IDiscordClient createClient(String token, boolean login) {
+    private static IDiscordClient createClient(String token, boolean login) {
         ClientBuilder clientBuilder = new ClientBuilder();
         clientBuilder.withToken(token);
         try {
